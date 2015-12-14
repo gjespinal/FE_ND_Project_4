@@ -556,7 +556,8 @@ window.addEventListener('scroll', onScroll);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  // reducing the number of pizza from 200 to 32 pizza for faster loop operation;
+  for (var i = 0; i < 32; i++) { 
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -564,7 +565,9 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+      //replaced querySelector with getElementById for performance improvement;
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
+  NewPizza();
   updatePositions();
 });
